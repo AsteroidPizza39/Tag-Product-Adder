@@ -23,4 +23,5 @@ array.Add(args[1]);
 array.Add(".engine__actor__ActorParam.gyml");
 
 using DataHandle data = byml.ToBinary(false);
-File.WriteAllBytes(args[2], data.ToArray());
+using FileStream writer = File.Create(args[2]);
+writer.Write(data);
